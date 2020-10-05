@@ -1,0 +1,38 @@
+<html xmlns:th="http://www.thymeleaf.org" lang="fr">
+<head>
+    <title>Add new User</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+<body style="background-color: darkslategrey; color: floralwhite;">
+
+<h1>Create a new user</h1>
+
+<div class="container">
+    <form action="#" th:action="@{/new}" th:object="${user}" method="post">
+        <!-- Put fields here -->
+        <div class="form-group">
+            <label for="firstNameInput">First Name</label>
+            <input type="text" th:field="*{firstName}" class="form-control" id="firstNameInput" aria-describedby="firstNameHelp" placeholder="Enter First Name">
+            <small id="firstNameHelp" class="form-text text-muted">It's always better to have a first name</small>
+        </div>
+        <div class="form-group">
+            <label for="lastNameInput">Last Name</label>
+            <input type="text" th:field="*{lastName}" class="form-control" id="lastNameInput" aria-describedby="lastNameHelp" placeholder="Enter Last Name">
+            <small id="lastNameHelp" class="form-text text-muted">A last name is mandatory. Otherwise who are you?</small>
+        </div>
+        <div class="form-group">
+            <label for="ageInput">Age</label>
+            <input type="text" th:field="*{age}" class="form-control" id="ageInput" aria-describedby="ageHelp" placeholder="Enter Age">
+            <small id="ageHelp" class="form-text text-muted">You must be older than 18 years old</small>
+        </div>
+        <br/>
+        <p th:text="${errors}"></p>
+        <br/>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+</body>
+</html>
